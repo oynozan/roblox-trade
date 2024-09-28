@@ -1,0 +1,53 @@
+.dropdown-wrapper {
+    position: relative;
+
+    .dropdown {
+        position: absolute;
+        z-index: 10;
+        background: $lgray;
+        width: 100%;
+        margin-top: 4px;
+        border-radius: 8px;
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            transition: 200ms;
+            cursor: pointer;
+
+            > * {
+                width: 100%;
+                padding: 12px 15px;
+            }
+
+            &, a {
+                color: $llgray;
+            }
+
+            &:hover {
+                background: #42424D;
+
+                &, a {
+                    color: #fff;
+                }
+            }
+
+            &:first-child { border-radius: 8px 8px 0 0; }
+            &:last-child { border-radius: 0 0 8px 8px; }
+        }
+    }
+
+    button .arrow {
+        transition: 200ms;
+    }
+
+    button.active .arrow {
+        transform: rotateZ(180deg);
+    }
+
+    &.w-150 .dropdown {
+        width: 150px;
+        right: 0;
+    }
+}

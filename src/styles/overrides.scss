@@ -1,0 +1,28 @@
+.toast-container {
+    > div > div {
+        position: relative;
+        background: transparent;
+        box-shadow: none;
+    }
+}
+
+// rc-slider
+.rc-slider-handle {
+    height: 20px !important;
+    width: 20px !important;
+    border: 5px solid $main !important;
+    margin-top: -8px !important;
+    outline: 4px solid $gray !important;
+    opacity: 1 !important;
+
+    &.rc-slider-handle-1 {
+        margin-left: 10px !important;
+    }
+    &.rc-slider-handle-2 {
+        margin-left: -10px !important;
+    }
+}
+
+.rc-slider-track {
+    background: $main !important;
+}

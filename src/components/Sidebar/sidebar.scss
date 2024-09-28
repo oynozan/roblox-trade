@@ -1,0 +1,56 @@
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 1px solid $lgray;
+    padding: 24px 0;
+    gap: 30px;
+    overflow-y: auto;
+
+    .navigation {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            > div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 60px;
+                width: 60px;
+                background: $lgray;
+                border-radius: 8px;
+            }
+
+            span {
+                color: $llgray;
+                font-size: 14px;
+            }
+
+            &.active {
+                > div {
+                    background: $main;
+                }
+
+                span {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .social {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}

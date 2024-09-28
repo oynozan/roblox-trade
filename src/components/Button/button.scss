@@ -1,0 +1,101 @@
+.button {
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    height: fit-content;
+
+    &.main {
+        position: relative;
+        background: $main;
+        color: #fff;
+        font-weight: 500;
+
+        &:hover {
+            background: $second;
+        }
+
+        > span {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    &.gray {
+        position: relative;
+        background: $gray;
+        color: #fff;
+        font-weight: 500;
+
+        &:hover {
+            background: $lgray;
+        }
+
+        > span {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    &.lgray {
+        position: relative;
+        background: $lgray;
+        color: #fff;
+        font-weight: 500;
+
+        &:hover {
+            background: $llgray;
+        }
+
+        > span {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    &.red {
+        width: fit-content;
+        position: relative;
+        background: linear-gradient(20deg, $red, rgb(157, 7, 7));
+        color: #fff !important;
+        font-weight: 500;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 14px;
+            transition: 200ms;
+            background-color: transparent;
+        }
+
+        &:hover::before {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        > span {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    &.light {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid $llgray;
+
+        &:hover {
+            background: #ffffff10;
+        }
+    }
+
+    &.blank {
+        background: transparent;
+        padding: 0;
+        color: #fff;
+        border-radius: 0;
+    }
+}

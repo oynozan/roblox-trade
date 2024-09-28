@@ -1,0 +1,124 @@
+#withdraw {
+    h1 {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 24px;
+    }
+
+    .methods {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 28px;
+            background: $gray;
+            padding: 16px;
+            border-radius: 8px;
+
+            &:hover {
+                background: $lgray;
+            }
+
+            .name {
+                h4 {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #fff;
+                }
+
+                p {
+                    color: $llgray;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.withdraw-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 70px;
+
+    > img {
+        margin-bottom: 48px;
+    }
+
+    .amount-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 450px;
+
+        > span {
+            color: $llgray;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            background: $gray;
+            border-radius: 8px;
+            padding: 8px 24px 8px 16px;
+
+            > span {
+                color: $llgray;
+            }
+
+            .amount {
+                display: flex;
+                align-items: center;
+
+                .dollar {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: $main;
+                    height: 24px;
+                    width: 24px;
+                    border-radius: 8px;
+                }
+
+                input {
+                    background: transparent;
+                    text-align: end;
+                    font-size: 16px;
+                }
+
+                .val {
+                    margin-right: 20px;
+
+                    .s-integer, .s-float {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: $llgray;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            padding-bottom: 50px;
+
+            button, a {
+                width: 100%;
+                font-size: 16px;
+                font-weight: 400;
+                text-align: center;
+            }
+        }
+    }
+}

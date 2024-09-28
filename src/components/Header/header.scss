@@ -1,0 +1,178 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background: $gray;
+    border-bottom: 1px solid $lgray;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100px;
+        background: $main;
+    }
+
+    .middle {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 24px;
+
+        .mobile {
+            display: none;
+        }
+
+        .language {
+            img {
+                border-radius: 50%;
+            }
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .balance {
+                display: flex;
+                border-radius: 8px;
+                background: $lgray;
+                height: 40px;
+                // overflow: hidden;
+
+                .amount {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    height: 40px;
+                    padding: 8px;
+                    border-radius: 8px 0 0 8px;
+                    padding-right: 25px;
+                    color: #fff;
+
+                    .dollar {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: $main;
+                        height: 24px;
+                        width: 24px;
+                        border-radius: 8px;
+                    }
+                }
+
+                > a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 12px;
+                    height: 48px;
+                    width: 48px;
+                    background: $main;
+                    border: 4px solid $gray;
+                    margin-top: -4px;
+                    margin-right: -4px;
+                }
+            }
+
+            .cart {
+                position: relative;
+                height: 40px;
+                width: 40px;
+                background: $lgray;
+                border-radius: 8px;
+
+                a {
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .active {
+                    position: absolute;
+                    right: -6px;
+                    top: -6px;
+                    height: 18px;
+                    width: 18px;
+                    border-radius: 50%;
+                    background: $main;
+                    border: 4px solid $gray;
+                }
+            }
+
+            .profile {
+                img {
+                    border-radius: 8px;
+                }
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+
+                button, a {
+                    color: $llgray;
+                }
+            }
+        }
+    }
+
+    .status {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        width: 100px;
+        height: 100%;
+        background: $lgray;
+        padding-left: 5px;
+
+        .flick-effect {
+            height: 24px;
+            width: 24px;
+            position: relative;
+
+            > div:first-child {
+                border-radius: 100%;
+                background-color: $red-20;
+                animation-name: flick;
+                animation-duration: 1.3s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+                @include center-absolute;
+            }
+
+            > div:last-child {
+                height: 7px;
+                width: 7px;
+                border-radius: 100%;
+                background-color: $red;
+                @include center-absolute;
+            }
+        }
+    }
+}
+
+//Animations
+@keyframes flick {
+    0% {
+        height:0;
+        width:0;
+    }
+    80% {
+        height:24px;
+        width:24px;
+    }
+    100% {
+        height:0px;
+        width:0px;
+    }
+}

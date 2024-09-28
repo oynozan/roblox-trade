@@ -1,0 +1,83 @@
+#merge-modal {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $dark;
+
+    &::after {
+        content: '';
+        position: fixed;
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.03;
+        z-index: -999;
+        background: url("../../../public/vector/bg.png");
+        background-position: center;
+        background-size: 100% 100%;
+    }
+
+    .logos {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        span {
+            font-size: 27px;
+            font-weight: 700;
+        }
+    }
+
+    .texts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 45px;
+
+        h1 {
+            text-align: center;
+            font-size: 70px;
+            font-weight: 900;
+
+            span {
+                color: $main;
+            }
+        }
+
+        p {
+            width: 40%;
+            font-weight: 300;
+            font-size: 24px;
+            text-align: center;
+            color: #B3B3B3;
+            margin-top: 30px;
+        }
+
+        a {
+            border-radius: 45px;
+            padding: 15px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .25);
+            margin-top: 60px;
+        }
+    }
+
+    .bottom {
+        color: #B3B3B3;
+        font-size: 24px;
+        margin-top: 100px;
+    }
+}

@@ -1,0 +1,35 @@
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 8px;
+    border: 2px solid $lgray;
+    background: $lgray;
+    transition: 100ms;
+    cursor: pointer;
+
+    img {
+        height: 100%;
+    }
+    
+    &.checked {
+        background: $main;
+        border-color: $main;
+    }
+
+    &.square {
+        border: 2px solid white;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    &.blue {
+        border-color: $main;
+
+        &.checked {
+            background: $main;
+        }
+    }
+}
