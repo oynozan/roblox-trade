@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 import Cookie from "@/lib/cookie";
@@ -68,7 +67,7 @@ export default function Register() {
         });
 
         if (response.error) {
-            toast.error(response.error);
+            alertTrigger("error", response.error);
             return;
         } else {
             setUser(response.user);

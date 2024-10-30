@@ -57,13 +57,9 @@ export async function SendPasswordReset(email: string) {
 
 export async function ValidatePasswordReset({
     email,
-    code,
-    oldPassword,
     newPassword,
 }: {
     email: string;
-    code: string;
-    oldPassword: string;
     newPassword: string;
 }) {
     RetryCleaner();
@@ -90,22 +86,28 @@ export async function ValidatePasswordReset({
     const user = await GetUserByEmail(email);
     if (!user) return { error: "User not found" };
 
-    // Get password code
-    const passwordDoc = await userDB.findOne({ email: user.email }, { passwordCode: 1, password: 1 });
-    const passwordCode = passwordDoc?.passwordCode;
-
-    // Check if code is valid
-    if (passwordCode !== code) return { error: "Invalid code" };
-
-    // Check if old password is correct
-    const isValidPassword = await Encryption.comparePasswords(oldPassword, passwordDoc.password);
-    if (!isValidPassword) return { error: "Invalid password" };
-
     // Encrypt new password
     const password = await Encryption.createPassword(newPassword);
 
     // Update user password
     await userDB.updateOne({ email }, { password, passwordCode: null });
+
+    return { success: true };
+}
+
+export async function ValidatePasswordResetOTP(email: string, otp: string) {
+    await MongoConnect();
+
+    // Get user
+    const user = await GetUserByEmail(email);
+    if (!user) return { success: false, error: "User not found" };
+
+    // Get password code
+    const passwordDoc = await userDB.findOne({ email: user.email }, { passwordCode: 1 });
+    const passwordCode = passwordDoc?.passwordCode;
+
+    // Check if code is valid
+    if (passwordCode !== otp) return { success: false, error: "Invalid code" };
 
     return { success: true };
 }

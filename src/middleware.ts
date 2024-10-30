@@ -25,6 +25,14 @@ export async function middleware(request: NextRequest) {
     } else {
         // Decode the user cookie
         decodedUser = await Encryption.decodeJwt(user.value);
+        if (!decodedUser) {
+            for (const page of AUTH_PAGES) {
+                if (request.nextUrl.pathname.startsWith(page)) {
+                    return NextResponse.next();
+                }
+            }
+            return NextResponse.redirect(new URL("/login", request.url));
+        }
     }
 
     // Check if user has not activated their account

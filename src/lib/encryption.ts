@@ -42,14 +42,18 @@ export class Encryption {
     /**
      * Decodes the JWT token
      * @param {string} token - JWT token
-     * @returns {JwtPayload} Decoded JWT payload
+     * @returns {JwtPayload | null} Decoded JWT payload
      */
-    static async decodeJwt(token: string): Promise<JwtPayload> {
-        const decoded = await jose.jwtVerify(
-            token,
-            new TextEncoder().encode(process.env.JWT_SECRET!)
-        ) as JwtPayload;
-        return decoded.payload;
+    static async decodeJwt(token: string): Promise<JwtPayload | null> {
+        try {
+            const decoded = await jose.jwtVerify(
+                token,
+                new TextEncoder().encode(process.env.JWT_SECRET!)
+            ) as JwtPayload;
+            return decoded.payload;
+        } catch(err) {
+            return null;
+        }
     }
 
     /**
